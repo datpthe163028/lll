@@ -1,0 +1,85 @@
+﻿@page
+@model LoginModel
+
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+
+<section class="htc__product__area ptb--130 bg__white">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+                <div class="card rounded-3 text-black">
+                    <div class="row g-0">
+                        <div class="col-lg-6">
+                            <div class="card-body p-md-5 mx-md-4">
+
+                                <div class="text-center">
+                                    <h1 class="mt-1 mb-5 pb-1">Login</h1>
+                                    <h4 class="mt-1 mb-5 pb-1">Login by your email address and password</h4>
+                                </div>
+
+                                <form id="account" method="post">
+                                    <div style="margin-bottom: 15px" class="form-floating">
+                                        <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                                        <label asp-for="Input.Email" class="form-label"></label>
+                                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                    </div>
+
+
+                                    <div style="margin-bottom: 15px" class="form-floating">
+                                        <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
+                                        <label asp-for="Input.Password" class="form-label"></label>
+                                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                    </div>
+                                    <div>
+                                        <div class="checkbox">
+                                            <label asp-for="Input.RememberMe" class="form-label">
+                                                <input class="form-check-input" asp-for="Input.RememberMe" />
+                                                @Html.DisplayNameFor(m => m.Input.RememberMe)
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button style=" width: 21vw; height: 40px; background-color: black; color: white; border-radius: 6px" id="login-submit" type="submit">Log in</button>
+                                    </div>
+                                    <div>
+                                        <p>
+                                            <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                                        </p>
+                                        <p>
+                                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                                        </p>
+                                        <p>
+                                            <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                                        </p>
+                                    </div>
+
+
+
+                                </form>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                            <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                                <h1 class="mb-4">Register</h1>
+                                <p class="small mb-0">
+                                    Hãy tạo tài khoản ngay ! Bạn có thể nhận được các dịch vụ
+                                    đặc biệt cho riêng bạn như kiểm tra lịch sử mua hàng và nhận
+                                    phiếu giảm giá cho thành viên. Đăng ký miễn phí ngay hôm nay!.
+                                </p>
+                                <a  class="btn"  style=" margin-top: 10px; font-weight: 900; background-color: black; color: white" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
